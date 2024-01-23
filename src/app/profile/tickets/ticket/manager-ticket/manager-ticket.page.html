@@ -1,0 +1,181 @@
+<ion-header *ngIf="isDataAvailable">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        text="Profil"
+        icon="arrow-back-outline"
+        defaultHref="tabs/profile"
+      >
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title> Ticket </ion-title>
+    <ion-badge [color]="statusColor(managerTicket.status)" slot="end">
+      {{managerTicket.status}}
+    </ion-badge>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="isDataAvailable">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-label position="stacked">Titre</ion-label>
+          <ion-input
+            class="custom"
+            type="text"
+            [(ngModel)]="managerTicket.title"
+            readonly="true"
+          ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-label position="stacked">Numéro d'entreprise</ion-label>
+          <ion-input
+            class="custom"
+            type="text"
+            [(ngModel)]="managerTicket.companyNumber"
+            readonly="true"
+          ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-label position="stacked">Nom</ion-label>
+          <ion-input
+            class="custom"
+            type="text"
+            [(ngModel)]="managerTicket.companyName"
+            readonly="true"
+          ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-label position="stacked">Adresse</ion-label>
+          <ion-input
+            class="custom"
+            type="text"
+            [(ngModel)]="managerTicket.companyAddress"
+            readonly="true"
+          ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-label position="stacked">Numéro de la personne</ion-label>
+          <ion-input
+            class="custom"
+            type="text"
+            [(ngModel)]="managerTicket.companyPhone"
+            readonly="true"
+          ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-label position="stacked">Email de la personne</ion-label>
+          <ion-input
+            class="custom"
+            type="text"
+            [(ngModel)]="managerTicket.companyEmail"
+            readonly="true"
+          ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-label position="stacked">Site web</ion-label>
+          <ion-input
+            class="custom"
+            type="text"
+            [(ngModel)]="managerTicket.companyWebsite"
+            readonly="true"
+          ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-label position="stacked">Description</ion-label>
+          <ion-input
+            class="custom"
+            type="text"
+            [(ngModel)]="managerTicket.companyDescription"
+            readonly="true"
+          ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="managerTicket.status === 'PENDING' ">
+      <ion-col>
+        <ion-button expand="block" (click)="updateManagerTicket('IN_PROGRESS')"
+          >Travailler dessus</ion-button
+        >
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="userId !== managerTicket.adminId && managerTicket.adminId !== null ">
+      <ion-col class="ion-margin-bottom ion-text-center">
+        <ion-note>
+          {{ticketAdmin.lastName}} {{ticketAdmin.firstName}} s'occupe de ce
+          ticket
+        </ion-note>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="managerTicket.status === 'IN_PROGRESS' ">
+      <ion-col>
+        <ion-button
+          expand="block"
+          (click)="updateManagerTicket('REJECTED')"
+          color="danger"
+          [disabled]="userId !== managerTicket.adminId"
+          >Decliner</ion-button
+        >
+      </ion-col>
+      <ion-col>
+        <ion-button
+          expand="block"
+          (click)="updateManagerTicket('ACCEPTED')"
+          color="success"
+          [disabled]="userId !== managerTicket.adminId"
+          >Accepter</ion-button
+        >
+      </ion-col>
+    </ion-row>
+    <ion-row
+      *ngIf="managerTicket.status === 'ACCEPTED' || managerTicket.status === 'REJECTED'"
+    >
+      <ion-col>
+        <ion-button
+          expand="block"
+          (click)="updateManagerTicket('IN_PROGRESS')"
+          color="warning"
+          >Révision</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

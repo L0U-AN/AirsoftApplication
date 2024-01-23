@@ -1,0 +1,12 @@
+.player-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.label-container {
+    width: 100%; /* Assurez-vous que le conteneur de label prend toute la largeur */
+}
+
+ion-item {
+    margin-bottom: 15px; /* Ajoute un espace en dessous de chaque ion-item */
+}

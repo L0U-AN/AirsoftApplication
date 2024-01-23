@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        text="Profil"
+        icon="arrow-back-outline"
+        defaultHref="tabs/profile"
+      >
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Tickets</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h3>DEMANDES</h3>
+        <ion-list>
+          <ion-item
+            *ngFor="let organizerRequest of organizerRequests"
+            [routerLink]="['./', organizerRequest.docId] "
+          >
+            <ion-badge
+              [color]="statusColor(organizerRequest.status)"
+              slot="end"
+            >
+              {{organizerRequest.status}}
+            </ion-badge>
+            <ion-label>
+              <h2>{{ organizerRequest.title }}</h2>
+              {{ formatTimestampDate(organizerRequest.createdAt) }} -
+
+            </ion-label>
+          </ion-item>
+        </ion-list>
+
+      <!--  <h3>Demande manager </h3>
+        <ion-list>
+          <ion-item
+            *ngFor="let managerRequest of managerRequests"
+            [routerLink]="['./', managerRequest.docId] "
+          >
+            <ion-badge
+              [color]="statusColor(managerRequest.status)"
+              slot="end"
+            >
+              {{managerRequest.status}}
+            </ion-badge>
+            <ion-label>
+              <h2>{{ managerRequest.title }}</h2>
+              {{ formatTimestampDate(managerRequest.createdAt) }} -
+
+            </ion-label>
+          </ion-item>
+        </ion-list> -->
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

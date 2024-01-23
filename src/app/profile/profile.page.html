@@ -1,0 +1,138 @@
+<!--<ion-header *ngIf="isDataAvailable" [translucent]="true">
+  <ion-toolbar class="ion-text-center">
+    <ion-title>Mon profil</ion-title>
+
+    <ion-button fill="none" slot="end" (click)="presentActionSheet()">
+      <ion-icon slot="icon-only" name="cog"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+-->
+
+<ion-content *ngIf="isDataAvailable">
+
+    <div class="nameProfile">
+      <div class="name">
+        <h2>{{ user[0].firstName }}</h2>
+        <h2>{{ user[0].lastName }}</h2>
+        <p>{{ user[0].email }}</p>
+      </div>
+    </div>
+
+    <div class="flex">
+      <div class="border-grey">
+        <div class="border-white">
+          <div class="img-box">
+            <img
+                alt="profileImg"
+                [src]="user[0].photoURL ? user[0].photoURL : 'https://ionicframework.com/docs/img/demos/avatar.svg' "
+              />
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <ion-grid>
+
+    <ion-row class="ion-margin-top centered-row">
+      <ion-col class="centered-col">
+        <ion-item lines="none" (click)="contact()">
+          <ion-icon slot="start" name="mail-outline"></ion-icon>
+          Support client
+        </ion-item>
+        <ion-item
+          lines="none"
+          *ngIf="this.user[0].role.toUpperCase()==='ADMIN'"
+          [routerLink]="['./tickets']"
+        >
+          <ion-badge slot="end" color="danger"> {{tickets.length}} </ion-badge>
+          <ion-icon slot="start" name="ticket-outline"></ion-icon>
+          Tickets
+        </ion-item>
+        <ion-item
+          lines="none"
+          *ngIf="this.user[0].isOrganizer || this.user[0].role.toUpperCase()==='ADMIN'"
+          [routerLink]="['./my-events']"
+        >
+          <ion-icon slot="start" name="calendar-outline"></ion-icon>
+          Mes events
+        </ion-item>
+
+        <ion-item lines="none" (click)="presentActionSheet()">
+          <ion-icon slot="start" name="cog"></ion-icon>
+          Modifier mon profil
+        </ion-item>
+        
+        <ion-item lines="none" (click)="logout()">
+          <ion-icon slot="start" name="log-out-outline"></ion-icon>
+          Déconnexion
+        </ion-item>
+
+
+      </ion-col>
+    </ion-row>
+
+  <!-- <ion-row
+      *ngIf="!this.user[0].isOrganizer || this.user[0].role.toUpperCase()==='ADMIN' "
+      class="centered-row"
+    >
+      <ion-col
+      class="centered-col">
+          <ion-button
+            (click)="organizerForm()"
+            >ORGANISATEUR / MANAGER
+          </ion-button>
+      </ion-col>
+    </ion-row>
+  --> 
+  <ion-row>
+    <ion-col>
+      <ion-item lines="none">
+        <div class="buttons">
+          <ion-button
+          *ngIf="!this.user[0].isOrganizer || this.user[0].role.toUpperCase()==='ADMIN' "
+              fill="outline"
+              (click)="organizerForm()"
+            >
+            ORGANISATEUR / MANAGER
+            </ion-button>
+        </div>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  </ion-grid>
+</ion-content>
+
+
+
+
+<!--<ion-row
+      *ngIf="!this.user[0].isManager || this.user[0].role.toUpperCase()==='ADMIN' "
+    >
+      <ion-col>
+          <ion-button
+            expand="block"
+            shape="round"
+            style="--background: #cd2323; padding-left: 1em; padding-right: 1em"
+            (click)="openManagerForm()"
+            >Je suis gérant de magasin
+            <ion-icon
+              style="position: absolute; right: -0.3em"
+              size="large"
+              slot="end"
+              name="arrow-forward-circle"
+              color="light"
+            ></ion-icon>
+          </ion-button>
+      </ion-col>
+    </ion-row>
+    -->
+
+
+
+
+
+
+

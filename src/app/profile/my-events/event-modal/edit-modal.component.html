@@ -1,0 +1,110 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Modification</ion-title>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Annuler</ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button [disabled]="!eventForm.valid" (click)="confirm()"
+        >Confirmer</ion-button
+      >
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="eventForm">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Titre</ion-label>
+        <ion-input
+          formControlName="title"
+          [clearInput]="true"
+          [ngModel]="event.title"
+          ngControl="title"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Description</ion-label>
+        <ion-input
+          formControlName="description"
+          [clearInput]="true"
+          [ngModel]="event.description"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Location</ion-label>
+        <ion-input
+          formControlName="location"
+          [clearInput]="true"
+          [ngModel]="event.location"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Prix</ion-label>
+        <ion-input
+          type="number"
+          formControlName="price"
+          [clearInput]="true"
+          [ngModel]="event.price"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-button (click)="uploadFile()">Select Image</ion-button>
+        <ion-input
+          formControlName="imageUrl"
+          type="url"
+          [value]="newImageUrl"
+          style="display: none"
+        >
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        Du
+        <ion-datetime-button datetime="availableFrom"></ion-datetime-button>
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime
+              id="availableFrom"
+              [showDefaultButtons]="true"
+              value="{{
+                preview.availableFrom
+                  ? preview.availableFrom.toDate().toISOString()
+                  : null
+              }}"
+              (ionChange)="availableFromChanged($event)"
+            ></ion-datetime>
+          </ng-template>
+        </ion-modal>
+      </ion-item>
+      <ion-item>
+        Au
+        <ion-datetime-button datetime="availableTo"></ion-datetime-button>
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime
+              id="availableTo"
+              [showDefaultButtons]="true"
+              value="{{
+                preview.availableTo
+                  ? preview.availableTo.toDate().toISOString()
+                  : null
+              }}"
+              (ionChange)="availableToChanged($event)"
+            ></ion-datetime>
+          </ng-template>
+        </ion-modal>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>

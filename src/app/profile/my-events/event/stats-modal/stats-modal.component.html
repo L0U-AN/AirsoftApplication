@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="close()">Fermer</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-card>
+          <ion-card-header> Total de joueurs inscrits : </ion-card-header>
+          <ion-card-content>
+            {{ totalPlayers }}
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+          <ion-card-header> Present - Absent : </ion-card-header>
+          <ion-card-content>
+          <p>Joueurs présents : {{ totalPresent }}</p>
+          <p>Joueurs absents : {{ totalAbsent }}</p>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+          <ion-card-content>
+              <ion-item *ngFor="let player of displayedPlayers" class="player-container">
+                <div>
+                  <ion-label class="label-container">
+                    <p>Prénom: {{ player.firstName }}</p>
+                    <p>Nom: {{ player.lastName }}</p>
+                    <p>Email: {{ player.email }}</p>
+                    <p>Statut: {{ player.attendanceStatus || 'Non défini' }}</p>
+                    <ion-button *ngIf="!player.attendanceStatus" color="success" (click)="markAttendance(player, 'present')">PRESENT</ion-button>
+                  <ion-button *ngIf="!player.attendanceStatus" color="danger" (click)="markAttendance(player, 'absent')">ABSENT</ion-button>
+                  </ion-label>
+                </div>
+              </ion-item>
+          </ion-card-content>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+
+
+

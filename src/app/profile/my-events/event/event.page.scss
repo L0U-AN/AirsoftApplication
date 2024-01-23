@@ -1,0 +1,68 @@
+
+ion-button.bookmark-button {
+  --padding-start: 8px;
+  --padding-end: 8px;
+  --background: rgba(86, 105, 255, 0.12);
+}
+
+ion-img.event-banner {
+  background-size: 100%;
+  object-fit: contain;
+}
+
+ion-icon.event-detail-icon {
+  height: 32px;
+  width: 32px;
+  padding: 8px;
+  left: 0px;
+  top: 0px;
+
+  border-radius: 12px;
+}
+
+ion-label.event-detail-label {
+  white-space: inherit;
+}
+
+ion-text.event-detail-description {
+  padding: 5px;
+}
+
+ion-button.add-terrain {
+  --background-hover: var(--ion-color-medium-tint);
+  --background-activated: var(--ion-color-medium);
+  --background-focused: var(--ion-color-medium);
+
+  --color: var(--ion-color-medium-shade);
+
+  --border-style: dashed;
+  --border-color: var(--ion-color-medium-shade);
+  --border-width: 2px;
+}
+
+ion-item.conf-item {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+}
+
+.cardImage {
+  display: flex;
+  align-items: center;
+  width: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.eventImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+ion-fab-button {
+  --color: white; /* Couleur de l'icône */
+  --background: #cd2323; /* Couleur de fond du bouton */
+}
+

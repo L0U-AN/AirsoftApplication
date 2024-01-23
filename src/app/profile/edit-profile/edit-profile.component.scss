@@ -1,0 +1,26 @@
+ion-avatar {
+  margin: auto;
+  --size: 20px;
+  height: 112px;
+  width: 112px;
+}
+
+ion-input.custom {
+  background-color: rgba($color: #9d9fa6, $alpha: 0.12);
+  border-radius: 12px;
+
+  --padding-start: 10px;
+}
+
+ion-card.organisateur-annonce {
+  padding-bottom: 10px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+img.img-organisateur {
+  position: absolute;
+  height: 200px;
+  right: -30px;
+  bottom: -10px;
+}

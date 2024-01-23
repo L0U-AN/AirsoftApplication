@@ -1,0 +1,132 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>MODIFICATION PROFIL</ion-title>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Annuler</ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button [disabled]="!userForm.valid" (click)="confirm()"
+        >Confirmer</ion-button
+      >
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <form [formGroup]="userForm">
+      <ion-row class="ion-justify-content-center">
+        <ion-col class="ion-align-self-center ion-text-center">
+          <ion-avatar>
+            <div style="width: 135px; height: 100px; position: absolute">
+              <ion-fab vertical="bottom" horizontal="end" [edge]="true">
+                <ion-fab-button (click)="uploadFile()" size="small">
+                  <ion-icon name="pencil"></ion-icon>
+                </ion-fab-button>
+              </ion-fab>
+            </div>
+            <img
+              alt="Silhouette of a person's head"
+              [src]="
+                user[0].photoURL
+                  ? user[0].photoURL
+                  : 'https://ionicframework.com/docs/img/demos/avatar.svg'
+              "
+            />
+          </ion-avatar>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-start">
+        <ion-col class="ion-align-self-center ion-no-margin">
+          <ion-item lines="none">
+            <ion-label position="stacked"></ion-label>
+            <ion-input
+              class="custom"
+              type="text"
+              formControlName="firstName"
+              [(ngModel)]="user[0].firstName"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item lines="none">
+            <ion-label position="stacked"></ion-label>
+            <ion-input
+              class="custom"
+              type="text"
+              formControlName="lastName"
+              [(ngModel)]="user[0].lastName"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item lines="none">
+            <ion-label position="stacked"></ion-label>
+            <ion-input
+              class="custom"
+              type="text"
+              formControlName="email"
+              [(ngModel)]="user[0].email"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item lines="none">
+            <ion-label position="stacked">N° GSM</ion-label>
+            <ion-input
+              class="custom"
+              type="text"
+              formControlName="phone"
+              [(ngModel)]="user[0].phone"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item lines="none">
+            <ion-label position="stacked">Date de naissance</ion-label>
+            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime
+                  (ionChange)="handleBirthDate($event)"
+                  id="datetime"
+                  value="{{ user[0].birthDate.toDate().toISOString() }}"
+                ></ion-datetime>
+              </ng-template>
+            </ion-modal>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item lines="none">
+            <ion-label position="stacked">Sexe</ion-label>
+            <ion-list>
+              <ion-item>
+                <ion-select
+                  placeholder="Sélectionnez votre sexe"
+                  [value]="user[0].sex"
+                  (ionChange)="handleSex($event)"
+                >
+                  <ion-select-option value="H">Homme</ion-select-option>
+                  <ion-select-option value="F">Femme</ion-select-option>
+                  <ion-select-option value="A">Autre</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

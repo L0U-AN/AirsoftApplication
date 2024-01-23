@@ -1,0 +1,144 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Formulaire organisateur</ion-title>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button [disabled]="!organizerForm.valid" (click)="confirm()"
+        >Confirm</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <form [formGroup]="organizerForm">
+      <ion-row>
+        <ion-col>
+          <ion-item lines="none">
+            <ion-label position="stacked"></ion-label>
+            <ion-input
+              class="custom"
+              type="text"
+              formControlName="title"
+              readonly="true"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item lines="none">
+            <ion-label position="stacked"></ion-label>
+            <ion-input
+              placeholder="Numéro d'entreprise"
+              class="custom"
+              type="text"
+              formControlName="companyNumber"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item lines="none">
+            <ion-label position="stacked"></ion-label>
+            <ion-input
+              placeholder="Nom de l'entreprise"
+              class="custom"
+              type="text"
+              formControlName="companyName"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item lines="none">
+            <ion-label position="stacked"></ion-label>
+            <ion-input
+              placeholder="Nom terrain/magasin"
+              class="custom"
+              type="text"
+              formControlName="terrainName"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item lines="none">
+            <ion-label position="stacked"></ion-label>
+            <ion-input
+              placeholder="Adresse terrain/magasin"
+              class="custom"
+              type="text"
+              formControlName="terrainAddress"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item lines="none">
+            <ion-label position="stacked"></ion-label
+            >
+            <ion-input
+              placeholder="Numéro téléphone"
+              class="custom"
+              type="text"
+              formControlName="terrainPhone"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item lines="none">
+            <ion-label position="stacked"></ion-label>
+            <ion-input
+              placeholder="Email terrain/magasin"
+              class="custom"
+              type="text"
+              formControlName="terrainEmail"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item lines="none">
+            <ion-label position="stacked"></ion-label>
+            <ion-input
+              placeholder="Site web terrain/magasin"
+              class="custom"
+              type="text"
+              formControlName="terrainWebsite"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item lines="none">
+            <ion-label position="stacked"></ion-label>
+            <ion-input
+              placeholder="Description terrain/magasin"
+              class="custom"
+              type="text"
+              formControlName="terrainDescription"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

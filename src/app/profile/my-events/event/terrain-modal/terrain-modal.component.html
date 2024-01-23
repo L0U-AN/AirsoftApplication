@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inscrire terrain</ion-title>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button
+        [disabled]="!terrainForm.valid"
+        (click)="confirm()"
+        >Confirm</ion-button
+      >
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <form [formGroup]="terrainForm">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Nom</ion-label>
+            <ion-input
+              formControlName="name"
+              [clearInput]="true"
+              required
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Description</ion-label>
+            <ion-input
+              formControlName="description"
+              [clearInput]="true"
+              required
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Location</ion-label>
+            <ion-input
+              formControlName="location"
+              [clearInput]="true"
+              required
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Capacity</ion-label>
+            <ion-input
+              type="number"
+              formControlName="capacity"
+              [clearInput]="true"
+              required
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            Available From
+            <ion-datetime-button datetime="availableFrom"></ion-datetime-button>
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime
+                  id="availableFrom"
+                  [showDefaultButtons]="true"
+                  value="{{
+                    preview.availableFrom
+                      ? preview.availableFrom.toDate().toISOString()
+                      : null
+                  }}"
+                  (ionChange)="availableFromChanged($event)"
+                ></ion-datetime>
+              </ng-template>
+            </ion-modal>
+          </ion-item>
+        </ion-col>
+
+        <ion-col>
+          <ion-item>
+            Available To
+            <ion-datetime-button datetime="availableTo"></ion-datetime-button>
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime
+                  id="availableTo"
+                  [showDefaultButtons]="true"
+                  value="{{
+                    preview.availableTo
+                      ? preview.availableTo.toDate().toISOString()
+                      : null
+                  }}"
+                  (ionChange)="availableToChanged($event)"
+                ></ion-datetime>
+              </ng-template>
+            </ion-modal>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

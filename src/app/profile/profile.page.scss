@@ -1,0 +1,118 @@
+.nameProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre les éléments horizontalement */
+  justify-content: center; /* Centre les éléments verticalement */
+  background-color: #cd2323;
+  height: 160px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.name {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.name h2 {
+  display: inline; /* Rend l'élément h2 en ligne */
+  margin-right: 10px;
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px 0px 10px;
+}
+
+.followings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.followings p{
+  color: white;
+  margin: 8px 0px 0px 0px ;
+}
+
+.img-box {
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  overflow: hidden;
+
+}
+
+img {
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.border-white {
+  border: 4px solid white;
+  border-radius: 50%;
+  width: fit-content;
+}
+
+.border-grey {
+  border: 7px solid rgb(193, 190, 190);
+  border-radius: 50%;
+  width: fit-content;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  margin-top: -56px;
+}
+
+.centered-row {
+  display: flex;
+  justify-content: center;
+}
+
+.centered-col {
+  display: flex;
+  justify-content: center;
+  flex-direction: column; /* Pour aligner les éléments verticalement */
+}
+
+.buttons {
+  display: flex;
+  justify-content: center; /* Centre horizontalement */
+  flex-direction: column; /* Alignement vertical */
+  align-items: center; /* Centrage des éléments enfants */
+  width: 100%;
+  margin-top: 20px;
+}
+
+.buttons ion-button {
+  width: 80%; /* Largeur relative à la largeur du conteneur */
+  max-width: 400px; /* Largeur maximale pour les grands écrans */
+  height: auto; /* Hauteur automatique basée sur le contenu */
+  font-size: 1em; /* Ajustez la taille de la police selon vos besoins */
+  --padding-top: 10px; /* Ajustez le padding selon vos besoins */
+  --padding-bottom: 10px; /* Ajustez le padding selon vos besoins */
+  font-size: 4vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
