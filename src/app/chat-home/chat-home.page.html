@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <h3 style="margin-left: 0.5em; color: #cd2323;">MES CONVERSATIONS</h3>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-searchbar (ionInput)="searchUsers($event)"></ion-searchbar>
+
+  <ion-list>
+    <ion-item *ngFor="let user of filteredUsers" (click)="openOrStartChat(user)">
+      {{ user.email }}
+    </ion-item>
+  </ion-list>
+
+  <!-- Section to display chats -->
+  <ion-list *ngIf="chatList.length > 0">
+    <ion-item *ngFor="let chat of chatList" routerLink="/chat/{{ chat.id }}">
+      {{ chat.otherUserEmail }}
+    </ion-item>
+  </ion-list>
+
+</ion-content>
