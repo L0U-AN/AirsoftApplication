@@ -1,0 +1,7 @@
+ion-tab-bar {
+  --background: #cd2323; /* Couleur de fond rouge */
+  --color: rgb(193, 190, 190); /* Couleur par défaut des icônes */
+  --color-selected: white; /* Couleur des icônes lorsque l'onglet est sélectionné */
+  border-radius: 35px; /* Bordures arrondies en haut */
+  border-top: solid 2px white; /* Bordure supérieure blanche (facultatif) */
+}

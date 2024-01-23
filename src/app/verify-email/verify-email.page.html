@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>VERIFICATION DE L'ADRESSE MAIL</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- waiting for mail verification -->
+
+      <p>
+        Nous vous avons envoyé un e-mail pour vérifier votre compte.
+        <br><br>
+       Veuillez vérifier votre boîte de réception et cliquez sur le lien pour vérifier
+        votre adresse e-mail.
+      </p>
+      <ion-button
+        class="custom-button"
+        type="button"
+        expand="block"
+        (click)="sendVerificationMail()"
+      >
+        Renvoyer l'e-mail de vérification</ion-button
+      >
+      <ion-button class="custom-button" type="button" expand="block" routerLink="">
+        Retour à la page de connexion
+      </ion-button>
+
+
+</ion-content>
