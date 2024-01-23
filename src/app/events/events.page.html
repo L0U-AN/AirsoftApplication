@@ -1,0 +1,26 @@
+<ion-header *ngIf="isDataAvailable" id="ion-header">
+  <ion-toolbar>
+    <h3 style="margin-left: 0.5em; color: #cd2323;">A NE PAS MANQUER</h3>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="isDataAvailable">
+  <ion-list *ngIf="events.length > 0" lines="none">
+      <ion-item
+      *ngFor="let event of events "
+      [routerLink]="['./', event.id] ">
+        <ion-thumbnail slot="start">
+          <ion-img alt="photo" [src]="event.imageUrl">
+          </ion-img>
+        </ion-thumbnail>
+        <ion-label
+          >{{event.title}}
+          <p>{{event.description}}</p>
+          <p>
+            {{ formatTimestampDate(event.availableFrom) }} -
+            {{ formatTimestampDate(event.availableTo) }}
+          </p>
+        </ion-label>
+      </ion-item>
+  </ion-list>
+</ion-content>

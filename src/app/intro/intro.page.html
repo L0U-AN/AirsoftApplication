@@ -1,0 +1,64 @@
+<ion-header> </ion-header>
+
+<ion-content>
+  <ion-img class="logo" src="../../assets/AirsoftXperience LOGO.png" alt="Description de l'image"></ion-img>
+  <swiper [config]="swiperConfig">
+    <ng-template swiperSlide>
+      <div class="swiper-slide-container">
+        <ion-text color="light">
+          <h1>Bienvenue dans l'univers de l'airsoft !</h1>
+          <p>
+            Explorez, planifiez et jouez avec facilité. 
+          </p>
+        </ion-text>
+      </div>
+    </ng-template>
+    <ng-template swiperSlide>
+      <div class="swiper-slide-container">
+        <ion-text color="light">
+          <h1>Trouvez des parties en un instant !</h1>
+          <p>
+            Découvrez des événements passionnants et rejoignez la bataille en un click.
+          </p>
+        </ion-text>
+      </div>
+    </ng-template>
+
+    <ng-template swiperSlide>
+      <div class="swiper-slide-container">
+        <ion-text color="light">
+          <h1>Vous êtes organisateur : Planifiez votre partie !</h1>
+          <p>
+            Planifiez vos parties d'airsoft et invitez d'autres joueurs à se joindre à l'action.
+          </p>
+        </ion-text>
+      </div>
+    </ng-template>
+
+    <ng-template swiperSlide>
+      <div class="swiper-slide-container">
+        <ion-text color="light">
+          <h1>Vous possédez un magasin !</h1>
+          <p>
+            Ajoutez votre établissement pour être visible par la communauté.
+          </p>
+        </ion-text>
+      </div>
+    </ng-template>
+
+    <ng-template swiperSlide>
+      <div class="swiper-slide-container">
+        <ion-text color="light">
+          <h1>Commencez votre aventure dès maintenant !</h1>
+          <p>
+            Immergez-vous instantanément dans l'univers palpitant de l'airsoft. 
+          </p>
+          <ion-button (click)="start()" fill="outline" color="light"
+            >Prêt à tirer!</ion-button
+          >
+        </ion-text>
+      </div>
+    </ng-template>
+  </swiper>
+  <div class="text-background"></div>
+</ion-content>

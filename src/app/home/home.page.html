@@ -1,0 +1,181 @@
+<!-- <ion-header [translucent]="false" *ngIf="isDataAvailable">
+  <ion-toolbar color="primary">
+    <ion-avatar slot="start">
+      <img
+        alt="Silhouette of a person's head"
+        [src]="user[0].photoURL ? user[0].photoURL : 'https://ionicframework.com/docs/img/demos/avatar.svg' "
+      />
+    </ion-avatar>
+
+    <h2 class="ion-no-margin ion-margin-start">
+      {{user[0].displayName || user[0].firstName + " " + user[0].lastName }}
+    </h2>
+  </ion-toolbar>
+</ion-header>
+<ion-content *ngIf="isDataAvailable">
+  <h3 style="margin-left: 0.5em">Les événements à venir</h3>
+
+  <swiper [config]="slideOpts">
+    <ng-template *ngFor="let event of events" swiperSlide>
+      <ion-card class="card">
+        <div
+          style="
+            height: 141px;
+            overflow: hidden;
+            box-shadow: inset 0px -24px 31px -17px rgba(0, 0, 0, 0.25);
+          "
+        >
+          <ion-img
+            class="event-banner"
+            alt="Silhouette of mountains"
+            [src]="event.imageUrl"
+          >
+          </ion-img>
+        </div>
+
+        <ion-card-header class="ion-text-left">
+          <ion-card-title> {{event.title}} </ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content class="ion-text-left">
+          <p class="event-description">{{event.description}}</p>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <div>
+              <ion-icon name="location"></ion-icon> {{event.location}} <br />
+              <ion-icon name="calendar"></ion-icon>
+              {{ formatTimestampDate(event.availableFrom) }}
+            </div>
+            <ion-button
+              slot="end"
+              class="bookmark-button"
+              fill="clear"
+              (click)="onFavorite(event)"
+            >
+              <ion-icon
+                slot="icon-only"
+                [name]="isFavorite(event) ? 'heart' : 'heart-outline'"
+                class="icon-bookmark"
+              ></ion-icon>
+            </ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ng-template>
+  </swiper>
+
+//Nouvelle section pour les événements de l'utilisateur
+<h3 style="margin-left: 0.5em">Vos événements inscrits</h3>
+<ion-list>
+  <ion-item *ngFor="let event of userEvents">
+    <ion-label *ngIf="event">
+      <h4>{{ event.title }}</h4>
+      <p>{{ event.description }}</p>
+      <p>Date: {{ formatTimestampDate(event.availableFrom) }}</p>
+      <p>Emplacement: {{ event.location }}</p>
+    </ion-label>
+  </ion-item>
+</ion-list>
+
+
+<ng-container *ngIf="userEvents?.length === 0;">
+  <ion-card>
+    <ion-card-content>
+      <p>Aucun événement inscrit pour le moment.</p>
+    </ion-card-content>
+  </ion-card>
+</ng-container>
+</ion-content>
+
+-->
+
+
+<ion-content *ngIf="isDataAvailable">
+    <ion-toolbar >
+      <ion-avatar slot="start" class="profile">
+        <img
+          class="profileImage"
+          alt="Silhouette of a person's head"
+          [src]="user[0].photoURL ? user[0].photoURL : 'https://ionicframework.com/docs/img/demos/avatar.svg' "
+        />
+      </ion-avatar>
+
+      <!-- <p class="name">
+        {{user[0].displayName || user[0].firstName + " " + user[0].lastName }}
+      </p> -->
+    </ion-toolbar>
+  <div> <h3 class="h3Title">A NE PAS MANQUER</h3> </div>
+
+  <swiper [config]="slideOpts">
+
+    <ng-template *ngFor="let event of events" swiperSlide>
+      <ion-card class="card" (click)="nav(event.id)">
+        <div class="cardImage">
+          <ion-img class="eventImage"
+            alt="Photo event airrsoft"
+            [src]="event.imageUrl"
+          >
+          </ion-img>
+        </div>
+
+        <ion-card-header>
+          <ion-card-title class="title"> {{event.title}} </ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content class="card__details">
+          <p class="event-description">{{event.description}}</p>
+          <div>
+            <div>
+              <ion-icon class="location" name="location"></ion-icon> {{event.location}} <br />
+              <ion-icon class="calendar" name="calendar"></ion-icon>
+              {{ formatTimestampDate(event.availableFrom) }}
+            </div>
+            <ion-button
+              slot="end"
+              class="bookmark-button"
+              fill="clear"
+              (click)="onFavorite(event)"
+            >
+              <ion-icon
+                slot="icon-only"
+                [name]="isFavorite(event) ? 'heart' : 'heart-outline'"
+                class="icon-bookmark"
+              ></ion-icon>
+            </ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ng-template>
+  </swiper>
+
+<!-- Nouvelle section pour les événements de l'utilisateur-->
+<h3 class="h3Title">ÉVÉNEMENTS INSCRITS</h3>
+<ion-list *ngFor="let event of userEvents">
+  <ion-item (click)="nav(event.id)" class="eventItem" lines="none">
+      <ion-thumbnail slot="start">
+        <ion-img alt="photo" [src]="event.imageUrl">
+        </ion-img>
+      </ion-thumbnail>
+      <ion-label *ngIf="event">
+        <h4>{{ event.title }}</h4>
+        <p>{{ formatTimestampDate(event.availableFrom) }}</p>
+        <p>{{ event.location }}</p>
+      </ion-label>
+  </ion-item>
+</ion-list>
+
+
+<ng-container *ngIf="userEvents?.length === 0;">
+  <ion-card>
+    <ion-card-content>
+      <p>Aucun événement inscrit pour le moment.</p>
+    </ion-card-content>
+  </ion-card>
+</ng-container>
+</ion-content>
+

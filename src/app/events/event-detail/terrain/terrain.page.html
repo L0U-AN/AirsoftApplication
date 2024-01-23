@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        text="{{loadedEvent?.title}}"
+        icon="arrow-back-outline"
+        defaultHref="tabs"
+      >
+      </ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="isDataAvailable">
+  <ion-grid>
+    <ion-text color="primary" class="ion-text-left">
+      <h1>{{loadedTerrain?.name}}</h1>
+    </ion-text>
+    <ion-row>
+      <ion-card>
+        <ion-card-content>
+          <ion-col>
+
+            <ion-item lines="none" class="event-detail-item">
+              <ion-icon
+                name="location"
+                slot="start"
+                class="event-detail-icon"
+                color="primary"
+              ></ion-icon>
+
+              <ion-label class="event-detail-label">
+                <h3>{{loadedTerrain.location}}</h3>
+              </ion-label>
+            </ion-item>
+
+            <p style="text-align: left; margin-bottom: 0px">
+              {{loadedTerrain.description}}
+            </p>
+          </ion-col>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="ion-text-center">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

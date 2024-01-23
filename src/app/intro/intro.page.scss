@@ -1,0 +1,28 @@
+.swiper {
+  height: 100%;
+  --bullet-background-active: #fff;
+  --bullet-background: #000;
+}
+
+.swiper-slide-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  text-align: center;
+  padding-top: 30px;
+  height: 288px;
+  width: 100%;
+  bottom: 0;
+
+  background: #cd2323;
+  border-radius: 48px 48px 0px 0px;
+}
+
+.logo {
+  position: absolute;
+  width: 80%;
+  max-width: 400px;
+  height: 50%;
+  margin-left: 45px;
+}

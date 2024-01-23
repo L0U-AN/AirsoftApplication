@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <h3 style="margin-left: 0.5em; color: #cd2323;">A NE PAS MANQUER</h3>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <p *ngIf="events.length <= 0">Pas d'événéments favoris.</p>
+  <ion-list *ngIf="events.length > 0">
+    <ion-item *ngFor="let event of events" (click)="nav(event.id)">
+      <ion-thumbnail slot="start">
+        <ion-img alt="Silhouette of mountains" [src]="event.imageUrl">
+        </ion-img>
+      </ion-thumbnail>
+      <ion-label
+        >{{event.title}}
+        <p>{{event.description}}</p>
+        <p>
+        Du {{ formatTimestampDate(event.availableFrom) }} au
+        {{ formatTimestampDate(event.availableTo) }}
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

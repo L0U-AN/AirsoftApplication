@@ -1,0 +1,82 @@
+<ion-content [fullscreen]="true">
+  <div class="circleBase type2 circle1"></div>
+  <div class="circleBase type1"></div>
+  <div class="circleBase type2 circle2"></div>
+
+  <ion-label class="welcomeMessage">
+    <ion-text color="light">WELCOME BACK</ion-text> 
+    <ion-text color="white">
+      <p>CONNEXION!</p>
+    </ion-text>
+  </ion-label> 
+
+  <form (ngSubmit)="login()" [formGroup]="credentials">
+    <ion-list lines="none" class="ion-margin ion-padding ion-text-center">
+      <ion-item class="ion-margin-vertical">
+        <ion-icon 
+          name="mail-outline" slot="end" color="medium">
+        </ion-icon>
+        <ion-input
+          type="email"
+          placeholder="Email"
+          formControlName="email">
+        </ion-input>
+      </ion-item>
+
+      <ion-text 
+        class="ion-text-left"
+        color="danger"
+        *ngIf="(email.dirty || email.touched) && email.errors">
+        <p class="error">*Entrez une adresse mail valide</p>
+      </ion-text>
+
+      <ion-item class="ion-margin-vertical" class="custom">
+        <ion-icon
+          name="lock-closed-outline" 
+          slot="end" 
+          color="medium">
+        </ion-icon>
+        <ion-input 
+        class="custom"
+        type="password"
+        placeholder="Password"
+        formControlName="password">
+        </ion-input>
+      </ion-item>
+
+      <ion-text 
+        class="custom"
+        class="ion-text-left"
+        color="danger"
+        *ngIf="(password.dirty || password.touched) && password.errors">
+        <p class="error">Mot de passe doit contenir min 6 caractères</p>
+      </ion-text>
+
+      <ion-row class="ion-margin-vertical">
+        <ion-col size="6" class="alignItems">
+            <div align=left>
+              <ion-checkbox></ion-checkbox>
+              <ion-note>Remember me</ion-note>
+            </div>
+        </ion-col>
+        <ion-col size="6">
+          <div align=right>
+            <ion-note [routerLink]="['./reset-pswrd']">Mot de passe oublié</ion-note>
+          </div>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-button type="submit"
+      expand="block"
+      [disabled]="!credentials.valid">SE CONNECTER</ion-button>
+      
+      <p class="signup">
+        <ion-note>
+          Pas encore un joueur ? <ion-text routerLink="/signup" color="primary">M'inscrire</ion-text>
+        </ion-note>
+      </p>
+
+    </ion-list>
+  </form>
+</ion-content>

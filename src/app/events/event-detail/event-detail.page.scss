@@ -1,0 +1,58 @@
+ion-content { /* ou un autre conteneur parent */
+  display: flex;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+  //height: 100vh; /* Assurez-vous qu'il occupe toute la hauteur de la fenêtre */
+}
+
+.cardImage {
+  display: flex;
+  align-items: center;
+  width: 100vh;
+  height: 30vh;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.eventImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.labelDescription {
+  white-space: normal; /* Permet au texte de passer à la ligne */
+  overflow: visible;   /* Assure que le texte ne soit pas coupé */
+}
+
+.title {
+  text-align: center; /* Centre le texte horizontalement */
+}
+
+.buttons {
+  display: flex;
+  justify-content: center; /* Centre horizontalement */
+  flex-direction: column; /* Alignement vertical */
+  align-items: center; /* Centrage des éléments enfants */
+  width: 100%;
+  margin-top: 20px;
+}
+
+.buttons ion-button {
+  width: 20vh; /* Ajustez la largeur selon vos besoins */
+  height: 5vh; /* Ajustez la hauteur selon vos besoins */
+  font-size: 0.8em; /* Ajustez la taille de la police selon vos besoins */
+  --padding-top: 10px; /* Ajustez le padding selon vos besoins */
+  --padding-bottom: 10px; /* Ajustez le padding selon vos besoins */
+}
+
+ion-icon {
+  color: #cd2323;
+}
+
+
+
+
+
+
