@@ -1,0 +1,168 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+// swipper css
+@import "swiper/scss";
+@import "@ionic/angular/css/ionic-swiper";
+
+@import "swiper/scss/autoplay";
+@import "swiper/scss/keyboard";
+@import "swiper/scss/pagination";
+@import "swiper/scss/scrollbar";
+@import "swiper/scss/zoom";
+
+/**:root {
+  --ion-color-primary: #cd2323;
+  --ion-color-primary-rgb: 86, 105, 255;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #d11616;
+  --ion-color-primary-tint: #ff6780;
+
+  --ion-color-secondary: #ff0000;
+  --ion-color-secondary-rgb: 0, 248, 255;
+  --ion-color-secondary-contrast: #000000;
+  --ion-color-secondary-contrast-rgb: 0, 0, 0;
+  --ion-color-secondary-shade: #e00000;
+  --ion-color-secondary-tint: #ff1a1a;
+
+  --ion-color-tertiary: #dc2424;
+  --ion-color-tertiary-rgb: 125, 103, 238;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #654de0;
+  --ion-color-tertiary-tint: #8a76f0;
+
+  --ion-color-success: #29d697;
+  --ion-color-success-rgb: 41, 214, 151;
+  --ion-color-success-contrast: #000000;
+  --ion-color-success-contrast-rgb: 0, 0, 0;
+  --ion-color-success-shade: #24bc85;
+  --ion-color-success-tint: #3edaa1;
+
+  --ion-color-warning: #f59762;
+  --ion-color-warning-rgb: 245, 151, 98;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-contrast-rgb: 0, 0, 0;
+  --ion-color-warning-shade: #d88556;
+  --ion-color-warning-tint: #f6a172;
+
+  --ion-color-medium: #92949c;
+  --ion-color-medium-rgb: 146, 148, 156;
+  --ion-color-medium-contrast: #000000;
+  --ion-color-medium-contrast-rgb: 0, 0, 0;
+  --ion-color-medium-shade: #808289;
+  --ion-color-medium-tint: #9d9fa6;
+
+  --ion-color-light: #f4f5f8;
+  --ion-color-light-rgb: 244, 245, 248;
+  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast-rgb: 0, 0, 0;
+  --ion-color-light-shade: #d7d8da;
+  --ion-color-light-tint: #f5f6f9;
+}**/
+
+
+ion-back-button {
+  --background: transparent;
+  --color: #cd2323;
+  --text-transform: capitalize;
+  --icon-margin-end: 5px;
+  --border-style: none;
+  --icon-font-weight: 700;
+}
+
+h1 {
+  font-weight: 900;
+}
+
+h2 {
+  font-weight: 900;
+}
+
+h3 {
+  font-weight: 700;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+ion-datetime {
+  color: #120d26;
+  --background: #ffffff;
+}
+
+
+.circleBase {
+  border-radius: 50%;
+}
+
+.type1 {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  background: linear-gradient(90deg, #c45050 0%, #cd2323 100%);
+  box-shadow: 0px 1px 10px rgba(98, 140, 255, 0.5);
+  top: -50px;
+  left: -50px;
+}
+
+.type2 {
+  width: 100px;
+  height: 100px;
+  background: rgb(193, 190, 190);
+}
+
+.circle1 {
+  margin-left: 180px;
+  margin-top: 50px;
+}
+
+.circle2 {
+  position: absolute;
+  top: 150px;
+  left: -20px;
+}
+
+.welcomeMessage {
+  position: absolute;
+  top: 70px;
+  left: 50px;
+  p {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-top: 5px;
+  }
+}
+
+.error {
+  font-size: 0.75rem;
+}
